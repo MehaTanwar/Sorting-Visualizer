@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Sorting Visualizer</h1>
+
+  <div class="controls">
+    <label>Array Size:</label>
+    <input type="range" id="sizeSlider" min="10" max="100" value="30" onchange="generateArray(this.value)">
+    <span id="sizeValue">30</span>
+
+    <label>Speed:</label>
+    <input type="range" id="speedSlider" min="10" max="500" value="100">
+    <span id="speedValue">100ms</span>
+
+    <br><br>
+    <button onclick="generateArray()">Generate New Array</button>
+    <select id="algorithm">
+      <option value="bubble">Bubble Sort</option>
+      <option value="selection">Selection Sort</option>
+      <option value="insertion">Insertion Sort</option>
+      <option value="merge">Merge Sort</option>
+      <option value="quick">Quick Sort</option>
+      <option value="heap">Heap Sort</option>
+      <option value="counting">Counting Sort</option>
+      <option value="radix">Radix Sort</option>
+    </select>
+    <button onclick="runSort()">Run</button>
+  </div>
+
+  <div id="array"></div>
+
+  <div id="results">
+    <h2>Results</h2>
+    <p><strong>Runtime:</strong> <span id="runtime">-</span></p>
+    <table border="1" id="complexity">
+      <tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+      <tr><td>Bubble</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td></tr>
+      <tr><td>Selection</td><td>O(n²)</td><td>O(n²)</td><td>O(n²)</td></tr>
+      <tr><td>Insertion</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td></tr>
+      <tr><td>Merge</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td></tr>
+      <tr><td>Quick</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n²)</td></tr>
+      <tr><td>Heap</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td></tr>
+      <tr><td>Counting</td><td>O(n+k)</td><td>O(n+k)</td><td>O(n+k)</td></tr>
+      <tr><td>Radix</td><td>O(nk)</td><td>O(nk)</td><td>O(nk)</td></tr>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
