@@ -1,56 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sorting Visualizer</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Sorting Visualizer</h1>
+  <header>
+    <h1>Sorting Algorithm Visualizer</h1>
+  </header>
 
-  <div class="controls">
-    <label>Array Size:</label>
-    <input type="range" id="sizeSlider" min="10" max="100" value="30" onchange="generateArray(this.value)">
-    <span id="sizeValue">30</span>
+  <main>
+    <div class="controls">
+      <select id="algorithm-select">
+        <option value="bubble">Bubble Sort</option>
+        <option value="selection">Selection Sort</option>
+        <option value="merge">Merge Sort</option>
+        <option value="quick">Quick Sort</option>
+        <option value="heap">Heap Sort</option>
+      </select>
 
-    <label>Speed:</label>
-    <input type="range" id="speedSlider" min="10" max="500" value="100">
-    <span id="speedValue">100ms</span>
+      <input type="range" id="size-slider" min="10" max="150" value="50">
+      <button id="start-btn">Start Sort</button>
+      <button id="shuffle-btn">Shuffle</button>
+    </div>
 
-    <br><br>
-    <button onclick="generateArray()">Generate New Array</button>
-    <select id="algorithm">
-      <option value="bubble">Bubble Sort</option>
-      <option value="selection">Selection Sort</option>
-      <option value="insertion">Insertion Sort</option>
-      <option value="merge">Merge Sort</option>
-      <option value="quick">Quick Sort</option>
-      <option value="heap">Heap Sort</option>
-      <option value="counting">Counting Sort</option>
-      <option value="radix">Radix Sort</option>
-    </select>
-    <button onclick="runSort()">Run</button>
-  </div>
+    <div id="array-container"></div>
 
-  <div id="array"></div>
+    <div class="info">
+      <p>Runtime: <span id="runtime">0 ms</span></p>
+      <p>Steps: <span id="steps">0</span></p>
+    </div>
 
-  <div id="results">
-    <h2>Results</h2>
-    <p><strong>Runtime:</strong> <span id="runtime">-</span></p>
-    <table border="1" id="complexity">
-      <tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th></tr>
-      <tr><td>Bubble</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td></tr>
-      <tr><td>Selection</td><td>O(n²)</td><td>O(n²)</td><td>O(n²)</td></tr>
-      <tr><td>Insertion</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td></tr>
-      <tr><td>Merge</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td></tr>
-      <tr><td>Quick</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n²)</td></tr>
-      <tr><td>Heap</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td></tr>
-      <tr><td>Counting</td><td>O(n+k)</td><td>O(n+k)</td><td>O(n+k)</td></tr>
-      <tr><td>Radix</td><td>O(nk)</td><td>O(nk)</td><td>O(nk)</td></tr>
-    </table>
-  </div>
+    <canvas id="complexityChart" width="400" height="200"></canvas>
+  </main>
 
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
